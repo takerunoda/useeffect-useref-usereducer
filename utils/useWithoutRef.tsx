@@ -18,7 +18,7 @@ const useWithoutRef = ({valueA, setValueB} : functionProps) => {
     }, [setValueB, valueA])
 
     useEffect(() => {
-    const id = setInterval(handleValue, 2000);
+    const id = setInterval(handleValue, 1000);
     return () => clearInterval(id);
   }, [handleValue]) //valueAが変更される度に中断される
 }

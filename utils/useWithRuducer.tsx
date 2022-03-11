@@ -6,7 +6,7 @@ interface functionProps {
 
 const useWithRuducer = ({dispatch} : functionProps) => {
     useEffect(() => {
-    const id = setInterval(() => dispatch({type: "B"}), 2000);
+    const id = setInterval(() => dispatch({type: "B"}), 1000);
     return () => clearInterval(id);
   }, [dispatch]) //最初のrenderの時のみ実行される
 }

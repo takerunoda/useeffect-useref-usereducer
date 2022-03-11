@@ -25,7 +25,7 @@ const useWIthRef = ({valueA, setValueB} : functionProps) => {
 
     useEffect(() => {
     const handleValueCurrent = handleValueRef.current
-    const id = setInterval(handleValueCurrent, 2000);
+    const id = setInterval(handleValueCurrent, 1000);
     return () => clearInterval(id);
   }, []) //最初のrenderの時のみ実行される
 }
