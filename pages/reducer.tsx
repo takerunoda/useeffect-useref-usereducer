@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react'
 import PageComponent from '../Components/PageComponent'
-import useWithRuducer from '../utils/useWithRuducer'
+import useWithReducer from '../utils/useWithReducer'
 
 const Reducer = () => {
     const initialState = { 
@@ -13,17 +13,13 @@ const Reducer = () => {
       const {type, payload} = action
       const {valueA, valueB} = state
       switch(type) {
-        case "A_Only":
+        case "A_ONLY":
           const objectA = {...state, valueA: payload}
           return objectA
         case "B":
         const value2 = Math.round(Math.random() * 1000)
-        let calculated
-        if(value2 >= valueA){
-            calculated = value2 - valueA
-        } else {
-            calculated = valueA - value2
-        }
+        let calculated = value2 - valueA
+        if(calculated < 0) calculated = calculated * -1
         const objectB = {...state, valueB: calculated}
           return objectB
         default:
@@ -33,9 +29,9 @@ const Reducer = () => {
     const [{valueA, valueB}, dispatch] = useReducer(reducer, initialState)
     const handleOnClick = () => {
         const value = Math.round(Math.random() * 1000)
-        dispatch({type:"A_Only", payload: value})
+        dispatch({type:"A_ONLY", payload: value})
     }  
-    useWithRuducer({dispatch})
+    useWithReducer({dispatch})
 
   return (
     <PageComponent 

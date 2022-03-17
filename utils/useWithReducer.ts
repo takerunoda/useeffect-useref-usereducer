@@ -1,14 +1,14 @@
-import { Dispatch, SetStateAction, useCallback, useEffect, useRef } from 'react'
+import { Dispatch, useEffect } from 'react'
 
 interface functionProps {
-        dispatch: Dispatch<SetStateAction<any>>
+        dispatch: Dispatch<any>
     }
 
-const useWithRuducer = ({dispatch} : functionProps) => {
+const useWithReducer = ({dispatch} : functionProps) => {
     useEffect(() => {
     const id = setInterval(() => dispatch({type: "B"}), 1000);
     return () => clearInterval(id);
   }, [dispatch]) //最初のrenderの時のみ実行される
 }
 
-export default useWithRuducer
+export default useWithReducer

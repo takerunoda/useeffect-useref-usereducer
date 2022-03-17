@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PageComponent from '../Components/PageComponent'
-import useWIthRef from '../utils/useWIthRef'
+import useWithRef from '../utils/useWithRef'
 
 const Home = () => {
     const [valueA, setValueA] = useState(337)
@@ -9,7 +9,7 @@ const Home = () => {
         const value = Math.round(Math.random() * 1000)
         setValueA(value)
     }  
-    useWIthRef({valueA, setValueB})
+    useWithRef({valueA, setValueB})
 
   return (
     <PageComponent 

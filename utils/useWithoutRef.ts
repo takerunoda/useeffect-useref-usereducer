@@ -8,12 +8,8 @@ interface functionProps {
 const useWithoutRef = ({valueA, setValueB} : functionProps) => {
     const handleValue = useCallback(() => {
         const value2 = Math.round(Math.random() * 1000)
-        let calculated
-        if(value2 >= valueA){
-            calculated = value2 - valueA
-        } else {
-            calculated = valueA - value2
-        }
+        let calculated = value2 - valueA
+        if(calculated < 0) calculated = calculated * -1
         setValueB(calculated)        
     }, [setValueB, valueA])
 

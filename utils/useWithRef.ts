@@ -5,15 +5,11 @@ interface functionProps {
         setValueB: Dispatch<SetStateAction<number>>
     }
 
-const useWIthRef = ({valueA, setValueB} : functionProps) => {
+const useWithRef = ({valueA, setValueB} : functionProps) => {
     const handleValue = useCallback(() => {
         const value2 = Math.round(Math.random() * 1000)
-        let calculated
-        if(value2 >= valueA){
-            calculated = value2 - valueA
-        } else {
-            calculated = valueA - value2
-        }
+        let calculated = value2 - valueA
+        if(calculated < 0) calculated = calculated * -1
         setValueB(calculated)        
     }, [setValueB, valueA])
 
@@ -30,4 +26,4 @@ const useWIthRef = ({valueA, setValueB} : functionProps) => {
   }, []) //最初のrenderの時のみ実行される
 }
 
-export default useWIthRef
+export default useWithRef
